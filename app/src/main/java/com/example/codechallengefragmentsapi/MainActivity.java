@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         UserListFragment userListFragment = new UserListFragment().getinstance();
         getSupportFragmentManager()
                 .beginTransaction()
@@ -20,6 +19,5 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("main")
                 .commit();
     }
-
 
 }

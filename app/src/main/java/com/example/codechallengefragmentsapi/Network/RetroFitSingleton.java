@@ -12,7 +12,7 @@ public class RetroFitSingleton {
     }
 
     public static Retrofit getInstance() {
-        if (instance != null) {
+        if (instance == null) {
             instance = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
