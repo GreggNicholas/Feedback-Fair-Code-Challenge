@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DetailedScreen">
 
     <TextView
-
         android:id="@+id/phonenumber_detailedscreen"
         android:layout_width="203dp"
         android:layout_height="122dp"

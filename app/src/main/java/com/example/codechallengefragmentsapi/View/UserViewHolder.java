@@ -11,7 +11,9 @@ import com.example.codechallengefragmentsapi.Model.UserNameResponse;
 import com.example.codechallengefragmentsapi.R;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
-
+    public static final String PHONE = "params1";
+    public static final String EMAIl = "param2";
+    public static final String ADDRESS = "params3";
     private TextView displayFullName;
 
     public UserViewHolder(@NonNull View itemView) {
@@ -24,11 +26,11 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String PHONE = "params1";
-                final String EMAIl = "param2";
+
                 Intent i = new Intent(v.getContext(), DetailedScreen.class);
                 i.putExtra(PHONE, userNameResponse.getPhone());
                 i.putExtra(EMAIl, userNameResponse.getEmail());
+                i.putExtra(ADDRESS, userNameResponse.getAddress().getGeo());
                 v.getContext().startActivity(i);
 
             }
