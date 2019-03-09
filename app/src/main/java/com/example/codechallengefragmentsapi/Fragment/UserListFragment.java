@@ -18,6 +18,7 @@ import com.example.codechallengefragmentsapi.Network.ContactsService;
 import com.example.codechallengefragmentsapi.Network.RetroFitSingleton;
 import com.example.codechallengefragmentsapi.R;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,9 +51,10 @@ public class UserListFragment extends Fragment {
         getUserNames.enqueue(new Callback<List<UserNameResponse>>() {
             @Override
             public void onResponse(Call<List<UserNameResponse>> call, Response<List<UserNameResponse>> response) {
-
+                List<UserNameResponse> userNameResponseList = new LinkedList<>();
+                userNameResponseList.addAll(response.body());
                 Log.d(TAG, "onResponse: " + response.body().get(0).getName());
-//                recyclerView.setAdapter(new UserAdapter(response.body());
+                recyclerView.setAdapter(new UserAdapter(userNameResponseList));
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 
