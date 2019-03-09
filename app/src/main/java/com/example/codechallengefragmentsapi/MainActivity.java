@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        UserListFragment userListFragment = new UserListFragment().getinstance();
+        UserListFragment userListFragment = new UserListFragment().getInstance();
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container_main, userListFragment)

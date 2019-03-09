@@ -11,6 +11,7 @@ import com.example.codechallengefragmentsapi.Model.UserNameResponse;
 import com.example.codechallengefragmentsapi.R;
 
 public class UserViewHolder extends RecyclerView.ViewHolder {
+
     private TextView displayFullName;
 
     public UserViewHolder(@NonNull View itemView) {
@@ -18,13 +19,17 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         displayFullName = itemView.findViewById(R.id.fullname_textview_userlist);
     }
 
-    public  void onBind(final UserNameResponse userNameResponse) {
+    public void onBind(final UserNameResponse userNameResponse) {
         displayFullName.setText(userNameResponse.getName());
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final String PHONE = "params1";
+                final String EMAIl = "param2";
                 Intent i = new Intent(v.getContext(), DetailedScreen.class);
-
+                i.putExtra(PHONE, userNameResponse.getPhone());
+                i.putExtra(EMAIl, userNameResponse.getEmail());
+                v.getContext().startActivity(i);
 
             }
         });

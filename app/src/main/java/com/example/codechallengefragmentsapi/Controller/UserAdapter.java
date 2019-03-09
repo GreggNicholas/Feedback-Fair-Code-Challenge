@@ -12,6 +12,8 @@ import com.example.codechallengefragmentsapi.View.UserViewHolder;
 
 import java.util.List;
 
+import retrofit2.Call;
+
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     private List<UserNameResponse> userNameList;
 
@@ -22,7 +24,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int position) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.user_list_view, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.user_list_view, viewGroup, false);
 
         return new UserViewHolder(view);
     }

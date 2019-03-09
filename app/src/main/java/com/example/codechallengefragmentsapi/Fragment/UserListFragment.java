@@ -30,7 +30,7 @@ public class UserListFragment extends Fragment {
 
     private final String TAG = "UserListFrag";
 
-    public UserListFragment getinstance() {
+    public UserListFragment getInstance() {
         return new UserListFragment();
     }
 
@@ -46,12 +46,13 @@ public class UserListFragment extends Fragment {
         final RecyclerView recyclerView = view.findViewById(R.id.recyclerview_frag);
         Retrofit retrofit = RetroFitSingleton.getInstance();
         ContactsService contactsService = retrofit.create(ContactsService.class);
-        contactsService.getUserList().enqueue(new Callback<List<UserNameResponse>>() {
+        Call<List<UserNameResponse>> getUserNames = contactsService.getUserList();
+        getUserNames.enqueue(new Callback<List<UserNameResponse>>() {
             @Override
             public void onResponse(Call<List<UserNameResponse>> call, Response<List<UserNameResponse>> response) {
+
                 Log.d(TAG, "onResponse: " + response.body().get(0).getName());
-                List<UserNameResponse> userNameResponseList = response.body();
-                recyclerView.setAdapter(new UserAdapter(userNameResponseList));
+//                recyclerView.setAdapter(new UserAdapter(response.body());
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 
