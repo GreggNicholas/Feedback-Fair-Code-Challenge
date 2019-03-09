@@ -10,10 +10,11 @@ import android.view.ViewGroup;
 import com.example.codechallengefragmentsapi.R;
 
 
-public class UserList extends Fragment {
+public class UserListFragment extends Fragment {
 
 
-    public UserList() {
+    public UserListFragment getinstance() {
+    return new UserListFragment();
     }
 
 
